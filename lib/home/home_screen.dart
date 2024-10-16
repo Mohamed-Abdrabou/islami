@@ -7,6 +7,7 @@ import 'package:islamy_c12_dokki/home/tabs/SettingsTab.dart';
 
 import '../style/AppStyle.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home";
 
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Islami"),
+          title: Text(AppLocalizations.of(context)!.app_name),
         ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
@@ -50,22 +51,22 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   icon: ImageIcon(AssetImage("assets/images/moshaf.png")),
-                  label: "Quran"
+                  label: AppLocalizations.of(context)!.quran
               ),
               BottomNavigationBarItem(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
-                  label: "Ahadeth"
+                  label: AppLocalizations.of(context)!.ahadeth
               ),
               BottomNavigationBarItem(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   icon: ImageIcon(AssetImage("assets/images/sebha.png")),
-                  label: "Tasbeeh"
+                  label: AppLocalizations.of(context)!.tasbeeh
               ),
               BottomNavigationBarItem(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   icon: ImageIcon(AssetImage("assets/images/radio.png")),
-                  label: "Radio"
+                  label: AppLocalizations.of(context)!.radio
               ),
               BottomNavigationBarItem(
                   backgroundColor: Theme.of(context).colorScheme.primary,
