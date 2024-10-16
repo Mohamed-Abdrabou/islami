@@ -38,23 +38,19 @@ class QuranTab extends StatelessWidget {
             Expanded(
               child: Text(AppLocalizations.of(context)!.sura_name,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                fontSize: 20
-              ),),
+                style: Theme.of(context).textTheme.titleMedium,),
             ),
             Container(
               height: 40,
               width: 2,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary
+                color: Theme.of(context).colorScheme.onPrimaryContainer
               ),
             ),
             Expanded(
               child: Text(AppLocalizations.of(context)!.verses_number,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                  fontSize: 20
-              )),
+                  style: Theme.of(context).textTheme.titleMedium),
             ),
           ],
         ),
