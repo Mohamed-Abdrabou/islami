@@ -24,10 +24,7 @@ class _AhadethTabState extends State<AhadethTab> {
       children: [
         Expanded(child: Image.asset("assets/images/hadith_header.png")),
         Divider(),
-        Text("Ahadeth",style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w600
-        ),),
+        Text("Ahadeth",style: Theme.of(context).textTheme.titleMedium,),
         Divider(),
         Expanded(
           flex: 2,
@@ -37,10 +34,7 @@ class _AhadethTabState extends State<AhadethTab> {
                   Navigator.of(context).pushNamed(AhadethDetails.routeName,arguments: ahadethList[index]);
                 },
                 child: Text(ahadethList[index].title,
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),
               ),

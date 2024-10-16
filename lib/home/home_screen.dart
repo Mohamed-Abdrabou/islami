@@ -3,6 +3,9 @@ import 'package:islamy_c12_dokki/home/tabs/AhadethTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/QuranTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/RadioTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/SebhaTab.dart';
+import 'package:islamy_c12_dokki/home/tabs/SettingsTab.dart';
+
+import '../style/AppStyle.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home";
@@ -17,14 +20,17 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranTab(),
     AhadethTab(),
     SebhaTab(),
-    RadioTab()
+    RadioTab(),
+    SettingsTab()
   ];
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/background.png"),
+            image: AssetImage(AppStyle.isDark
+                ?"assets/images/home_dark_background.png"
+                :"assets/images/background.png"),
           fit: BoxFit.fill
         )
       ),
@@ -60,6 +66,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   icon: ImageIcon(AssetImage("assets/images/radio.png")),
                   label: "Radio"
+              ),
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  icon: Icon(Icons.settings),
+                  label: "Settings"
               ),
             ]
         ),
