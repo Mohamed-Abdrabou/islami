@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_c12_dokki/Providers/SettingsProvider.dart';
 import 'package:islamy_c12_dokki/home/tabs/AhadethTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/QuranTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/RadioTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/SebhaTab.dart';
 import 'package:islamy_c12_dokki/home/tabs/SettingsTab.dart';
+import 'package:provider/provider.dart';
 
 import '../style/AppStyle.dart';
 
@@ -26,10 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider =Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(AppStyle.isDark
+            image: AssetImage(settingsProvider.curantTheme==true
                 ?"assets/images/home_dark_background.png"
                 :"assets/images/background.png"),
           fit: BoxFit.fill
@@ -71,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   icon: Icon(Icons.settings),
-                  label: "Settings"
+                  label: AppLocalizations.of(context)!.settings
               ),
             ]
         ),

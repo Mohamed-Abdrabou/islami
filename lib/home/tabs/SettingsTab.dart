@@ -1,22 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:islamy_c12_dokki/Providers/SettingsProvider.dart';
 import 'package:islamy_c12_dokki/home/ThemeBottomSheet.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import '../LanguageBottomSheet.dart';
 
-class SettingsTab extends StatelessWidget {
+class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
 
   @override
+  State<SettingsTab> createState() => _SettingsTabState();
+}
+
+class _SettingsTabState extends State<SettingsTab> {
+  @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider =Provider.of<SettingsProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Language",
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -37,8 +45,10 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10)
               ),
               child: Text(
-                "English",
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              settingsProvider.language =="ar"
+                 ?"العربية"
+                 :"English",
+                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   fontSize: 18,
                 ),
               ),
@@ -46,7 +56,7 @@ class SettingsTab extends StatelessWidget {
           ),
           SizedBox(height: 30,),
           Text(
-            "Theme",
+            AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -65,8 +75,9 @@ class SettingsTab extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(10)
               ),
-              child: Text(
-                "Dark",
+              child: Text(settingsProvider.curantTheme == true
+                          ?"Dark"
+                          :"Light",
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   fontSize: 18,
                 ),

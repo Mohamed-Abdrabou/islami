@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islamy_c12_dokki/Providers/SettingsProvider.dart';
 import 'package:islamy_c12_dokki/home/Hadeth.dart';
+import 'package:provider/provider.dart';
 
 import '../style/AppStyle.dart';
 
@@ -10,11 +12,12 @@ class AhadethDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider =Provider.of<SettingsProvider>(context);
     Hadeth args = ModalRoute.of(context)?.settings.arguments as Hadeth;
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(AppStyle.isDark
+                image: AssetImage(settingsProvider.curantTheme == true
                     ?"assets/images/home_dark_background.png"
                     :"assets/images/background.png"),
                 fit: BoxFit.fill
